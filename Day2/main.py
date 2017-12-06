@@ -1,21 +1,39 @@
 import os, base64
-# Looking for key in format: HV17-xxxx-xxxx-xxxx-xxxx-xxxx
 
-# This looks like base32 or base64 bit encoded text
+input_file_path = 'Wishlist.txt'
 
-path = 'Wishlist.txt'
+input_file = open(input_file_path, 'r')
+input_file_data = input_file.read()
 
-chunk_start = 0
-chunk_size = 32
+input_bytes = bytes(input_file_data, 'ASCII')
+input_file.close()
+result = ''
 
-file_size = os.path.getsize(path)
-f = open(path,'r')
+# Run the decoding 32 times
+for i in range(1, 33):
+    if i == 1:
+        result = base64.decodebytes(input_bytes)
+    else:
+        result = base64.decodebytes(result)
+
+print(result)
 
 
-last_position = f.tell()
+# Maybe it is bitmap image?
+# No idea what size, and RGB vs grayscale etc
 
-while last_position < file_size:
-    # Read the first chunk
-    f.seek(last_position + chunk_size)
-    data = f.readlines(last_position)
-    print(data)
+# img_size = 2
+# max_img_size = 65536
+# counter = 1
+#
+# img_types = ['I','F']
+#
+# while img_size < max_img_size:
+#     for img_type in img_types:
+#         print("Generating a {} x {} image of type {}".format(img_size, img_size, img_type))
+#         out_image = Image.frombytes(img_type, (img_size, img_size), b64decodedstring)
+#         if out_image.mode != 'RGB':
+#             out_image = out_image.convert('RGB')
+#         out_image.save("generated/foo{}x{}-{}.png".format(img_size, img_size, img_type))
+#         img_size = pow(counter, 2)
+#         counter += 1
