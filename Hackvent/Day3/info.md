@@ -41,3 +41,67 @@ eip b7720406  ebp 00000001  esp bfd59210  flags 00000286
 
 I have no idea if this is of any significance, being new to assembly I recognize registers and the 8 digits of hex making 32 bits.
 
+Lost in messages
+Found strange entries in my Android logcat, i just want to read my messages
+
+What could the clue refer to:
+	* Messages could refer to SMS, email or application messages
+	* Some entries related to email, exchange
+	* Messages could refer to RAW PDU MESSAGE
+
+Checking SMS PDU: https://www.diafaan.com/sms-tutorials/gsm-modem-tutorial/online-sms-pdu-decoder/
+
+
+BOOM IT WORKS
+
+
+```
+Text message
+To:	
++13371337133
+Message:	
+Good Job! Now take the Flag: HV17-th1s-isol-dsch-00lm-agic
+ 
+Additional information
+PDU type:	
+SMS-SUBMIT
+Reference:	
+0
+SMSC:	
++44000000000
+Val. format:	
+None
+Data coding:	
+SMS Default Alphabet
+ 
+Original Encoded PDU fields
+SMSC:	
+07914400000000F0
+PDU header:	
+01
+TP-MTI:	
+01
+TP-RD:	
+00
+TP-VPF:	
+00
+TP-SRR:	
+00
+TP-UDHI:	
+00
+TP-RP:	
+00
+TP-MR:	
+00
+TP-DA:	
+0B913173317331F3
+TP-PID:	
+00
+TP-DCS:	
+00
+TP-UDL:	
+3A
+TP-UD:	
+C7F79B0C52BEC52190F37D07D1C3EB32888E2E838CECF05907425A63
+```
+
