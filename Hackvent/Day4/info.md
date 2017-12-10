@@ -126,11 +126,16 @@ What is in the other files? Two files of ASCII text
 7818 appears to be a cid to unicode map
 
 Each row is 32 bits
-
 what are the numbers from this
+with no discernable header this file just appears to be raw binary data
 
+tried reading it in various chunks such as 16 bits, 32 bits and 64 bits
 
+How did binwalk know this is a windows binary? How would a linux binary look
 
+readelf: 4C59: Error: Not an ELF file - it has the wrong magic bytes at the start
 
+so it has the wrong magic bytes at the start
 
+Can we run this thing, attach to a debugger or something?
 

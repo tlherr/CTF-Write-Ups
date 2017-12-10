@@ -1,12 +1,15 @@
-import os
+import os, binascii, struct
 
-# Read binary file as input
-# Read every 32 bits and convert it to a decimal number then print it
-
-input_file = open('files/4C59', 'r')
+# the b opens file in binary mode
+input_file = open('files/4C59', 'rb')
 input_file_size = os.path.getsize('files/4C59')
-l_pos = input_file.tell()
-r_pos = input_file.seek(32)
 
-while(input_file.seekable()):
-    print()
+
+try:
+    byte = input_file.read(4)
+    print(struct.unpack('>I', byte))
+    # while byte != "":
+    #     byte = input_file.read(1)
+    #     print(byte)
+finally:
+    input_file.close()
