@@ -32,3 +32,8 @@ Now the second half starts to make sense so if we just print it out we get
 C=SANTA("?")
 if C=="1787569":FUN(''.join(chr(ord(a) ^ ord(b)) for a,b in zip("{gMZF_MC_X\ERF[X","31415926535897932384626433832")))
 
+When it runs you will just see a ? displayed
+
+SANTA is input so if you provide 1787569 as input you get the code back:
+
+HV17-th1s-ju5t-l1k3-j5sf-uck!
