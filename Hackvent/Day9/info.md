@@ -22,4 +22,33 @@ so we have a structure with op, mapTo, content, mapFrom
 
 the slashes look like escape sequences, wondering what this is.
 
-Could be some object dumped to json
+Could be some object dumped to json, what structure uses op:map, mapTo, content and mapFrom?
+
+JSON patch? RFC 6902 Does not really work though as we were only given one file
+
+binwalk seems to think there is some data hidden in here?
+
+[tom@devbox Day9]$ binwalk jsonion.json 
+
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+253450        0x3DE0A         StuffIt Deluxe Segment (data): f2M+PvPf+C3dw,sJB}A]WAm5HFfZzjeoKVcn3}vOz12o}{Q,jOsb[6NBq6NqWKoL\"[14jTh}Ue\\jU\"\\SnBFihchfcIMFEc5}K,yAjweQvTPyTWKYsJc,cjV:IAIe
+484298        0x763CA         StuffIt Deluxe Segment (data): fdQRx2soUVz3F6NXPaUq6NQf2zIsJwzR{s{kBodEmUyGDZ,vz}:v\"SFb]OzBjcv,K5:JvF]MLdY}qQsm{JMhIeA:Mi1J}6N+zRjmYkGAxj\"qOsFpc{Q:hIOv0G=M22
+511693        0x7CECD         StuffIt Deluxe Segment (data): fpmK3kq4yB9VX]4+sQom6NGcIU1IYACseDMwYj6N5Ekb6Np[\"AfDGdF10,aV=iO+p04VYROm4Qkwb{35Yn33Uh\":MP0xvbxJ,cx]X\\KxRCYx=1iB,veAD:fnGc
+810942        0xC5FBE         StuffIt Deluxe Segment (data): fFwY\\HV}kv\"O[,zn:fWddsUWaez0=sUHo31{q1kbKDCOsbc5KB4P\"ddIB4P9qVmAM:iziyzFXUE9a]cPEobPp04TfMxkK1WLH0]=KT:SQ3cJHiw,{EYcp6NL5xKE9
+1313695       0x140B9F        StuffIt Deluxe Segment (data): f=mnV3\":Dw]Z}mUxeVqAxwPb1bHH\"wbfhRqXI]BX[:[{H4SUiWLoq44yX9wnSfk\"UqdP}31CX4v5HVT2qmOF}[0PJbyCUT}ezvfy2ESMO}YWRKov0vbF=P23FphpD
+
+
+Lets extract?
+
+Info on Stuffit Archives:
+
+ftp://linuxmafia.com/kb/Apps/stuffit-archives.html
+
+Trying to open with unar, this could be a false positive we just know it is compressed data
+From quick google stuffit is old and not very supported format
+
+Ok so assuming the binwalk stuffit is a false positive
+
+
+
